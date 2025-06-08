@@ -42,7 +42,7 @@ func main() {
 	flag.StringVar(&config.CaPem, "ca_pem", "/etc/secrets/ca.pem",
 		"Path to ca.pem, (required)")
 	flag.StringVar(&config.Topic, "topic", "nsg.crusoe.metrics-export.v1.pb", "Kafka topic name (required)")
-	flag.IntVar(&config.Parallelism, "parallelism", 5, "Consumer parallelism (default 1)")
+	flag.IntVar(&config.Parallelism, "parallelism", 2, "Consumer parallelism (default 1)")
 
 	flag.StringVar(&config.VMUrl, "vm_url", "http://localhost:8480",
 		//flag.StringVar(&config.VMUrl, "vm_url", "http://localhost:8428", or "http://localhost:8480"
