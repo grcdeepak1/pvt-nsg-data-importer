@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nsg-data-importer-service
+  labels:
+    app: nsg-data-importer
+spec:
+  type: ClusterIP
+  selector:
+    app: nsg-data-importer
+  ports:
+  - name: grpc
+    protocol: TCP
+    port: 50051
+    targetPort: grpc

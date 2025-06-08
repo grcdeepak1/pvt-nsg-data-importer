@@ -1,0 +1,14 @@
+# default = everyone is codeowner
+# TODO(template) If appropriate, make this more restrictive, like to @crusoeenergy/island for cloud projects
+* @crusoeenergy
+
+# more restrictive ownership for managing this file, adding dependencies, and changing ci/build
+# TODO(template) add leads for the team(s) managing this repo
+.gitlab/CODEOWNERS @lanwall12 @nitper
+.gitlab-ci.yml     @lanwall12 @nitper
+.golangci-lint.yml @lanwall12 @nitper
+go.mod             @lanwall12 @nitper
+Makefile           @lanwall12 @nitper
+Dockerfile         @lanwall12 @nitper
+Dockerfile.*       @lanwall12 @nitper
+charts/            @lanwall12 @nitper

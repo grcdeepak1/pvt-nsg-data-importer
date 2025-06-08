@@ -1,0 +1,9 @@
+replicaCount: 1
+image:
+  repository: registry.gitlab.com/crusoeenergy/neteng/nsg-data-importer
+  pullPolicy: Always
+  pullSecrets: gitlab
+  # Overrides the image tag whose default is the chart appVersion.
+  # Crusoe production deployments of this repository are done via Argo image tag override
+  # You must change the image.tag value in argo, not here, for production deploys
+  tag: "main"
