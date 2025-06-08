@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nsg-data-importer
+  namespace: neteng
   labels:
     app: nsg-data-importer
 spec:
