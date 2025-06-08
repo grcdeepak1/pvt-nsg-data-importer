@@ -28,4 +28,4 @@ RUN adduser -D -g '' -G crusoe -u 1000 crusoe
 USER crusoe
 
 # Run the binary
-ENTRYPOINT ["/usr/local/go/bin/nsg-data-importer"]
+ENTRYPOINT ["/usr/local/go/bin/nsg-data-importer", "-vm_url", "http://host.docker.internal:8480"]
