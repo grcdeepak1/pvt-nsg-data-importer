@@ -19,7 +19,7 @@ spec:
       volumes:
       - name: nsg-kakfa-secret-volume
         secret:
-          secretName: nsg-kakfa-secrets
+          secretName: nsg-kafka-secrets
       containers:
       - name: nsg-data-importer
         image: dchidambaram/nsg-data-importer:latest
