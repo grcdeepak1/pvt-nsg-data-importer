@@ -35,11 +35,11 @@ func main() {
 
 	// Define command line flags
 	flag.StringVar(&config.KafkaConnect, "kafka_connect", "crusoe-kafka-nsg-cloud-1.a.aivencloud.com:23580", "Kafka connection string (required)")
-	flag.StringVar(&config.CertFile, "cert", "./secrets/service.cert",
+	flag.StringVar(&config.CertFile, "cert", "/etc/secrets/service.cert",
 		"Path to certificate file, typically 'service.cert' (required)")
-	flag.StringVar(&config.AccessKeyFile, "access-key", "./secrets/service.key",
+	flag.StringVar(&config.AccessKeyFile, "access-key", "/etc/secrets/service.key",
 		"Path to access key file, typically 'service.key' (required)")
-	flag.StringVar(&config.CaPem, "ca_pem", "./secrets/ca.pem",
+	flag.StringVar(&config.CaPem, "ca_pem", "/etc/secrets/ca.pem",
 		"Path to ca.pem, (required)")
 	flag.StringVar(&config.Topic, "topic", "nsg.crusoe.metrics-export.v1.pb", "Kafka topic name (required)")
 	flag.IntVar(&config.Parallelism, "parallelism", 5, "Consumer parallelism (default 1)")

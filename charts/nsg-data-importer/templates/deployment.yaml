@@ -15,10 +15,18 @@ spec:
       labels:
         app: nsg-data-importer
     spec:
+      volumes:
+      - name: nsg-kakfa-secret-volume
+        secret:
+          secretName: nsg-kakfa-secret
       containers:
-      - name: grpc-server
+      - name: nsg-data-importer
         image: dchidambaram/nsg-data-importer:latest
         imagePullPolicy: Always
+        volumeMounts:
+          - name: nsg-kakfa-secret-volume
+            mountPath: "/etc/secrets"
+            readOnly: true
         ports:
         - containerPort: 50051
           name: grpc
