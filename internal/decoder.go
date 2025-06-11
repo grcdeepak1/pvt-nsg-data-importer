@@ -55,7 +55,7 @@ func (m *VMMetric) ToPromTimeSeries() *prompb.TimeSeries {
 	// Add __name__ label
 	labels = append(labels, prompb.Label{
 		Name:  "__name__",
-		Value: "Nsg" + m.Name,
+		Value: "NSG" + m.Name,
 	})
 
 	return &prompb.TimeSeries{
@@ -180,8 +180,14 @@ func (d *Decoder) processScopeMetrics(rm *metrics.ResourceMetrics, writeRequest 
 					}
 				}
 
-				// Add device_id from stored device reference
-				d.appendLabel(vmMetric.Labels, "device_id", strconv.Itoa(d.deviceId))
+				// Normalize device info with other attributes
+				for _, attr := range d.deviceRef.GetAttributes() {
+					if attr.Key == "type" || attr.Key == "id" {
+						continue
+					} else {
+						d.appendLabel(vmMetric.Labels, attr.Key, attr.GetValue().GetStringValue())
+					}
+				}
 
 				writeRequest.Timeseries = append(writeRequest.Timeseries, *vmMetric.ToPromTimeSeries())
 				//log.Printf("Processed metric: %s with value: %f", vmMetric.Name, vmMetric.Value)
